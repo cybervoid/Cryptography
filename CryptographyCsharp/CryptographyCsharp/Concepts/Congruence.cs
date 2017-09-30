@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CryptographyCsharp.Algorithms
+namespace CryptographyCsharp.Concepts
 {
     public class Congruence
     {
@@ -15,10 +15,18 @@ namespace CryptographyCsharp.Algorithms
         {
             if (first == second)
                 return true;
+
+            Equivalence eq;
+			if (first<second)
+                eq = new Equivalence(second, first);
+            else
+                eq = new Equivalence(first, second);
             
+            if (eq.Remainder == 0)
+                return true;
             //1. Any number is congruent to itself (mod m)
 
-            return false; 
+            return false;
         }
     }
 }

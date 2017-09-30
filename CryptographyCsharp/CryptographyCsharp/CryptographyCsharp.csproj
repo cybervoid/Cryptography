@@ -35,6 +35,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Concepts\Congruence.cs" />
+    <Compile Include="Concepts\Equivalence.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concepts\" />
