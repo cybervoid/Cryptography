@@ -36,9 +36,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Concepts\Congruence.cs" />
     <Compile Include="Concepts\Equivalence.cs" />
+    <Compile Include="Cryptography\Old\ShiftCipher.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concepts\" />
+    <Folder Include="Cryptography\" />
+    <Folder Include="Cryptography\Old\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Terminology.txt" />
