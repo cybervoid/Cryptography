@@ -1,0 +1,6 @@
+﻿
+PlainText - the original plane text
+Encrytion Scheme - creates the cipher
+Cipher Text - the output textS
+
+Friend - Decrypts... reverses the encryption scheme
