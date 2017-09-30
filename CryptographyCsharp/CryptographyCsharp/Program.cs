@@ -6,7 +6,7 @@ namespace CryptographyCsharp
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine(22 % 12);
             Console.ReadLine();
 
         }
