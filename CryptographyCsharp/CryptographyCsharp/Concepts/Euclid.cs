@@ -21,28 +21,19 @@ namespace CryptographyCsharp.Concepts
         {
             //a =  b 2 + r
             //assume d / a,  d / b => implies => d / r 
-            int divrem = DivisionAlgorithmRemainder(GetHigher(one, two), GetLower(one, two));
-            //Get the division algorithm again
-            int divAgain = DivisionAlgorithmRemainder(GetLower(one, two), divrem);
-            return divAgain;
+            decimal lastDenominator = GetLower(one, two);
+            int div = DivisionAlgorithmRemainder(GetHigher(one, two), lastDenominator);
+
+            while (div != 1)
+            {
+                lastDenominator = (lastDenominator - div);				
+                div = DivisionAlgorithmRemainder(div, lastDenominator);
+            }
+            return Convert.ToInt32(lastDenominator);
         }
 
-        private decimal GetHigher(int one, int two)
-        {
-            if (one > two)
-                return Convert.ToDecimal(one);
-            else
-                return Convert.ToDecimal(two);
-        }
 
-        private decimal GetLower(int one, int two)
-        {
-			if (two > one)
-				return Convert.ToDecimal(one);
-			else
-				return Convert.ToDecimal(two);   
-        }
-        public int DivisionAlgorithmRemainder(decimal numerator, decimal denominator)
+        private int DivisionAlgorithmRemainder(decimal numerator, decimal denominator)
         {
 			decimal result;
 			if (numerator == 0 || denominator == 0)
@@ -56,5 +47,22 @@ namespace CryptographyCsharp.Concepts
 
 			return Convert.ToInt32(numerator - (rounded * denominator));
         }
+
+
+		private decimal GetHigher(int one, int two)
+		{
+			if (one > two)
+				return Convert.ToDecimal(one);
+			else
+				return Convert.ToDecimal(two);
+		}
+
+		private decimal GetLower(int one, int two)
+		{
+			if (two > one)
+				return Convert.ToDecimal(one);
+			else
+				return Convert.ToDecimal(two);
+		}
     }
 }
