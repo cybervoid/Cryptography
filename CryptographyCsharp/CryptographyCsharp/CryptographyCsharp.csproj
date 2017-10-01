@@ -37,6 +37,7 @@
     <Compile Include="Concepts\Congruence.cs" />
     <Compile Include="Concepts\Equivalence.cs" />
     <Compile Include="Cryptography\Old\ShiftCipher.cs" />
+    <Compile Include="Concepts\Euclid.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concepts\" />

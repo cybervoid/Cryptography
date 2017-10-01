@@ -7,16 +7,34 @@ namespace CryptographyCsharp
     {
         public static void Main(string[] args)
         {
-            //CryptographyCsharp.Concepts.Equivalence equivalence = new Concepts.Equivalence(22, 12);
-            //Congruence congruence = new Congruence();
-            //Console.WriteLine(congruence.IsCongruent(21, 7));
-            ShiftCipher cs = new ShiftCipher("Hello World");
-            cs.Encrypt();
-            Console.WriteLine(cs.EncryptedText);
-            cs.Decrypt();
-            Console.WriteLine(cs.DecryptedText);
+            
             Console.ReadLine();
 
+        }
+
+        /// <summary>
+        /// Corresponds to Section 2, Lecture 4
+        /// </summary>
+        public static void GetCongruence()
+        {
+			Congruence congruence = new Congruence();
+			Console.WriteLine(congruence.IsCongruent(21, 7));
+		}
+        public static void RunEquivalence()
+        {
+            Equivalence equivalence = new Equivalence(22, 12);
+            Console.WriteLine(equivalence.Remainder);
+        }
+        /// <summary>
+        /// Runs the shift.
+        /// </summary>
+        public static void RunShift()
+        {
+			ShiftCipher cs = new ShiftCipher("Hello World");
+			cs.Encrypt();
+			Console.WriteLine(cs.EncryptedText);
+			cs.Decrypt();
+			Console.WriteLine(cs.DecryptedText);
         }
     }
 }
