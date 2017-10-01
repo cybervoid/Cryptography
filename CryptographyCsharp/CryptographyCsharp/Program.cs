@@ -7,11 +7,17 @@ namespace CryptographyCsharp
     {
         public static void Main(string[] args)
         {
-            
+            RunEuclid();
             Console.ReadLine();
 
         }
 
+
+        public static void RunEuclid()
+        {
+            Concepts.Euclid euc = new Euclid();
+            euc.Run();
+        }
         /// <summary>
         /// Corresponds to Section 2, Lecture 4
         /// </summary>
@@ -26,7 +32,7 @@ namespace CryptographyCsharp
             Console.WriteLine(equivalence.Remainder);
         }
         /// <summary>
-        /// Runs the shift.
+        /// Runs the shift cipher.
         /// </summary>
         public static void RunShift()
         {

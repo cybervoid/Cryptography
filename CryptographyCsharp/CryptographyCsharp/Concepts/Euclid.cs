@@ -19,26 +19,42 @@ namespace CryptographyCsharp.Concepts
         /// <param name="two">Second number.</param>
         public int GetGCD(int one, int two)
         {
-            decimal result;
-            decimal numerator = Convert.ToDecimal(one);
-            decimal denominator = Convert.ToDecimal(two);
-            if (one == 0 || two == 0 )
-                return 0;
-            if (one < two)
-            {
-                numerator = Convert.ToDecimal(two);
-                denominator = Convert.ToDecimal(one);
-            }
-
-            result = numerator / denominator;
-
-            if (result == 1)
-                return Convert.ToInt32(denominator);
-            
-            int rounded = Convert.ToInt32(Math.Floor(result)); 
-            return 0;
+            //a =  b 2 + r
+            //assume d / a,  d / b => implies => d / r 
+            int divrem = DivisionAlgorithmRemainder(GetHigher(one, two), GetLower(one, two));
+            //Get the division algorithm again
+            int divAgain = DivisionAlgorithmRemainder(GetLower(one, two), divrem);
+            return divAgain;
         }
 
+        private decimal GetHigher(int one, int two)
+        {
+            if (one > two)
+                return Convert.ToDecimal(one);
+            else
+                return Convert.ToDecimal(two);
+        }
 
+        private decimal GetLower(int one, int two)
+        {
+			if (two > one)
+				return Convert.ToDecimal(one);
+			else
+				return Convert.ToDecimal(two);   
+        }
+        public int DivisionAlgorithmRemainder(decimal numerator, decimal denominator)
+        {
+			decimal result;
+			if (numerator == 0 || denominator == 0)
+				return 0;
+
+            result = numerator / denominator;
+			if (result == 1)
+				return Convert.ToInt32(denominator);
+
+			int rounded = Convert.ToInt32(Math.Floor(result));
+
+			return Convert.ToInt32(numerator - (rounded * denominator));
+        }
     }
 }
