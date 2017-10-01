@@ -4,7 +4,7 @@ A repository for studying the fundamentals of cryptography
 <table>
 <tr>
 <td colspan="2">
-Cryptography repository is for learning the fundamentals of cryptography.
+Cryptography repository contents:
 </td>
 </tr>
 <tr>
