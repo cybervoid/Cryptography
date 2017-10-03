@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 namespace CryptographyCsharp.Concepts
 {
     public class Euclid
@@ -8,61 +10,37 @@ namespace CryptographyCsharp.Concepts
         }
         public void Run()
         {
-            Console.WriteLine(GetGCD(12157, 507));
+            Console.WriteLine(GCD(121,88));
+            Console.WriteLine(GCD(new[] { 121, 88 }));
+            //ExtendedEuclidean();
+            //Console.WriteLine(GetGCD(12157, 507));
         }
 
-        /// <summary>
-        /// Get the Greatest common divisor from two numbers.
-        /// </summary>
-        /// <returns>The greatest common divisor.</returns>
-        /// <param name="one">First number.</param>
-        /// <param name="two">Second number.</param>
-        public int GetGCD(int one, int two)
+        public int GCD(int[] numbers)
         {
-            //a =  b 2 + r
-            //assume d / a,  d / b => implies => d / r 
-            decimal lastDenominator = GetLower(one, two);
-            int div = DivisionAlgorithmRemainder(GetHigher(one, two), lastDenominator);
-
-            while (div != 1)
+            return numbers.Aggregate(GCD);
+        }
+		/// <summary>
+		/// Get the Greatest common divisor from two numbers.
+		/// </summary>
+		/// <returns>The greatest common divisor.</returns>
+		/// <param name="one">First number.</param>
+		/// <param name="two">Second number.</param>
+		public int GCD(int a, int b)
+        {
+            if (b == 0)
+                return a;
+            else
             {
-                lastDenominator = (lastDenominator - div);				
-                div = DivisionAlgorithmRemainder(div, lastDenominator);
+                return GCD(b, a % b);
             }
-            return Convert.ToInt32(lastDenominator);
+            //return b == 0 ? a : GCD(b, a % b);
         }
 
 
-        private int DivisionAlgorithmRemainder(decimal numerator, decimal denominator)
+        public void ExtendedEuclidean()
         {
-			decimal result;
-			if (numerator == 0 || denominator == 0)
-				return 0;
-
-            result = numerator / denominator;
-			if (result == 1)
-				return Convert.ToInt32(denominator);
-
-			int rounded = Convert.ToInt32(Math.Floor(result));
-
-			return Convert.ToInt32(numerator - (rounded * denominator));
+           // Console.WriteLine(GetGCD(121, 88));
         }
-
-
-		private decimal GetHigher(int one, int two)
-		{
-			if (one > two)
-				return Convert.ToDecimal(one);
-			else
-				return Convert.ToDecimal(two);
-		}
-
-		private decimal GetLower(int one, int two)
-		{
-			if (two > one)
-				return Convert.ToDecimal(one);
-			else
-				return Convert.ToDecimal(two);
-		}
     }
 }
