@@ -40,7 +40,7 @@ namespace CryptographyCsharp.Concepts
 
         public void ExtendedEuclidean()
         {
-           // Console.WriteLine(GetGCD(121, 88));
+            
         }
     }
 }

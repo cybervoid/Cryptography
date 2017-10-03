@@ -7,7 +7,9 @@ namespace CryptographyCsharp
     {
         public static void Main(string[] args)
         {
-            RunEuclid();
+            Console.WriteLine(25.GetRemainder(20));
+            Console.WriteLine(121.GetGCD(88));
+            //RunEuclid();
             Console.ReadLine();
 
         }

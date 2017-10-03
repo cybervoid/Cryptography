@@ -38,6 +38,8 @@
     <Compile Include="Concepts\Equivalence.cs" />
     <Compile Include="Cryptography\Old\ShiftCipher.cs" />
     <Compile Include="Concepts\Euclid.cs" />
+    <Compile Include="Concepts\Residues.cs" />
+    <Compile Include="Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concepts\" />
