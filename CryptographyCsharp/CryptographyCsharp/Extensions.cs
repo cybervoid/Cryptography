@@ -22,6 +22,30 @@ namespace CryptographyCsharp
             return GCD(numbers.ToArray());
         }
 
+        public static bool IsCongruent(this int a, int b, int modulus)
+        {
+			if (a == b)
+				return true;
+
+            if (modulus == 0)
+                throw new ArgumentException("Invalid modulus value");
+            // Congruent if modulo m divides the difference between a - b
+            // m | (a - b)
+
+            if (a.GetRemainder(b) == 0 || b.GetRemainder(a) == 0)
+                return true;
+            
+			int diff = a - b;
+            if (diff / modulus == 1)
+                return true;
+            
+            return false;
+            // 0 = 2pi = 4pi
+            // 14 = 2 (mod 12)
+
+           
+        }
+
         #endregion
 
         #region Helpers
@@ -32,9 +56,6 @@ namespace CryptographyCsharp
             else
                 return Remainder(val - Modulus, Modulus);
         }
-
-
-
         private static int GCD(int[] numbers)
         {
             return numbers.Aggregate(GCD);

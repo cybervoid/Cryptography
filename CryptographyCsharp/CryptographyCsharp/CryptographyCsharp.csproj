@@ -40,11 +40,14 @@
     <Compile Include="Concepts\Euclid.cs" />
     <Compile Include="Concepts\Residues.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Cryptography\Modern\AES.cs" />
+    <Compile Include="Cryptography\Old\Affine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concepts\" />
     <Folder Include="Cryptography\" />
     <Folder Include="Cryptography\Old\" />
+    <Folder Include="Cryptography\Modern\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Terminology.txt" />
