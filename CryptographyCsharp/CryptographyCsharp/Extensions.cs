@@ -29,21 +29,18 @@ namespace CryptographyCsharp
 
             if (modulus == 0)
                 throw new ArgumentException("Invalid modulus value");
-            // Congruent if modulo m divides the difference between a - b
-            // m | (a - b)
-
-            if (a.GetRemainder(b) == 0 || b.GetRemainder(a) == 0)
+            
+            //if (a.GetRemainder(b) == 0 || b.GetRemainder(a) == 0)
+            if (a.GetRemainder(modulus) == b.GetRemainder(modulus))
                 return true;
             
 			int diff = a - b;
-            if (diff / modulus == 1)
-                return true;
+
+            //if (diff / modulus == 1)
+            //   return true;
             
             return false;
-            // 0 = 2pi = 4pi
-            // 14 = 2 (mod 12)
 
-           
         }
 
         #endregion

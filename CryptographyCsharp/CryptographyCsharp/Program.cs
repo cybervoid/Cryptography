@@ -7,8 +7,9 @@ namespace CryptographyCsharp
     {
         public static void Main(string[] args)
         {
-            Affine aff = new Affine();
-            aff.Run();
+            //Affine aff = new Affine();
+            //aff.Run();
+            Console.WriteLine(26.IsCongruent(11, 5));
             //Console.WriteLine(1.IsCongruent(7));
             Console.WriteLine(25.GetRemainder(20));
             Console.WriteLine(121.GetGCD(88));
