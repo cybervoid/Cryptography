@@ -42,6 +42,9 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Cryptography\Modern\AES.cs" />
     <Compile Include="Cryptography\Old\Affine.cs" />
+    <Compile Include="Concepts\Multiplicatives.cs" />
+    <Compile Include="Concepts\Euler.cs" />
+    <Compile Include="Concepts\SuccessiveSquaring.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concepts\" />
