@@ -45,12 +45,16 @@
     <Compile Include="Concepts\Multiplicatives.cs" />
     <Compile Include="Concepts\Euler.cs" />
     <Compile Include="Concepts\SuccessiveSquaring.cs" />
+    <Compile Include="Cryptography\Old\Vigenere.cs" />
+    <Compile Include="CryptoHelpers.cs" />
+    <Compile Include="Models\Alphabet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concepts\" />
     <Folder Include="Cryptography\" />
     <Folder Include="Cryptography\Old\" />
     <Folder Include="Cryptography\Modern\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Terminology.txt" />
