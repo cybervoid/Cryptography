@@ -7,6 +7,10 @@ namespace CryptographyCsharp
     {
         public static void Main(string[] args)
         {
+
+            Blockchain.MySimpleBlockchain bc = new Blockchain.MySimpleBlockchain();
+            bc.Run();
+            Console.ReadLine();
             //Affine aff = new Affine();
             //aff.Run();
             Console.WriteLine(26.IsCongruent(11, 5));
