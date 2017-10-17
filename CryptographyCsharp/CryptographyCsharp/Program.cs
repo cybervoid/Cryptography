@@ -8,6 +8,8 @@ namespace CryptographyCsharp
         public static void Main(string[] args)
         {
 
+            Vigenere vig = new Vigenere("Bob", "Hello World");
+            vig.Run();
             Blockchain.MySimpleBlockchain bc = new Blockchain.MySimpleBlockchain();
             bc.Run();
             Console.ReadLine();

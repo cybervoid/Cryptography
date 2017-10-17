@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CryptographyCsharp.Models;
 
 namespace CryptographyCsharp.Cryptography.Old
 {
@@ -7,44 +8,54 @@ namespace CryptographyCsharp.Cryptography.Old
     {
         public string Key{ get; set; }
         public string plainText { get; set; }
+        public List<Block> Blocks { get; set; }
         public Vigenere()
         {
+            Blocks = new List<Block>();
         }
 
-        public Vigenere(string key, string plain)
+        public Vigenere(string key, string plain) : this()
         {
             this.Key = key;
             plainText = plain;
         }
 
-        public void Run(string key)
+        public void Run()
         {
-            int length = key.Length;
+            for (int i = 0; i < plainText.Length; i++)
+            {
+                Blocks.Add(new Block(plainText[i], Key[i % Key.Length]));
+            }
+
+            foreach (var bl in Blocks)
+            {
+                Console.WriteLine(bl.EncryptedLetter.UpperLetter);
+            }
+            Console.ReadLine();
         }
     }
 
-    public class BlockKey
+    public class Block
     {
-        public List<Tuple<Models.Letter, int>> Blocks {get; set; }
-        private string Key;
-        public BlockKey(string key)
+        public Letter LetterKey { get; set; }
+        public Letter PlainLetter { get; set; }
+        public Letter EncryptedLetter  { get { return GetEncryptedLetter(); } }
+
+        public Block(char letterKey, char plainLetter)
         {
-            this.Key = key;
-            Initialize();
+            this.LetterKey = new Letter(letterKey);
+            this.PlainLetter = new Letter(plainLetter);
         }
 
-        private void Initialize()
+        public Block(int letterKey, int plainLetter) : this((char) letterKey, (char)plainLetter)
         {
-            Blocks = new List<Tuple<Models.Letter, int>>();
-            for (int i = 0; i < Key.Length; i++)
-            {
-                Blocks.Add(CreateBlock(Key[i], i));
-            }
+            
         }
 
-        private Tuple<Models.Letter, int> CreateBlock(char c, int i )
+        private Letter GetEncryptedLetter()
         {
-            return new Tuple<Models.Letter, int>(new Models.Letter(c), i);
+            return new Letter((char)(((LetterKey.UpperAscii + PlainLetter.UpperAscii) % 65)+65));
         }
     }
 }
+
