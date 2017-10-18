@@ -49,6 +49,7 @@
     <Compile Include="CryptoHelpers.cs" />
     <Compile Include="Models\Alphabet.cs" />
     <Compile Include="Blockchain\MySimpleBlockchain.cs" />
+    <Compile Include="Cryptography\Old\Playfair.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concepts\" />
