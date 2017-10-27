@@ -50,6 +50,7 @@
     <Compile Include="Models\Alphabet.cs" />
     <Compile Include="Blockchain\MySimpleBlockchain.cs" />
     <Compile Include="Cryptography\Old\Playfair.cs" />
+    <Compile Include="Cryptography\Modern\EllipticCurve.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concepts\" />
