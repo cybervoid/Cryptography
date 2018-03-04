@@ -7,7 +7,7 @@ namespace CryptographyCsharp
     {
 		#region extensions
 
-		public static byte[] HexToBytes(this string str)
+		public static byte[] FromHex(this string str)
 		{
 			if (str.Length == 0 || str.Length % 2 != 0)
 				return new byte[0];
