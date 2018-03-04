@@ -51,6 +51,7 @@
     <Compile Include="Blockchain\MySimpleBlockchain.cs" />
     <Compile Include="Cryptography\Old\Playfair.cs" />
     <Compile Include="Cryptography\Modern\EllipticCurve.cs" />
+    <Compile Include="Tests\AESTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concepts\" />
@@ -59,6 +60,7 @@
     <Folder Include="Cryptography\Modern\" />
     <Folder Include="Models\" />
     <Folder Include="Blockchain\" />
+    <Folder Include="Tests\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Terminology.txt" />

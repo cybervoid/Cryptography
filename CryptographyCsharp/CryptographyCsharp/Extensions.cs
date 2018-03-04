@@ -114,6 +114,20 @@ namespace CryptographyCsharp
             }
             //return b == 0 ? a : GCD(b, a % b);
         }
+        public static bool[] ConvertByteToBoolArray(this byte b)
+        {
+            // prepare the return result
+            bool[] result = new bool[8];
+
+            // check each bit in the byte. if 1 set to true, if 0 set to false
+            for (int i = 0; i < 8; i++)
+                result[i] = (b & (1 << i)) == 0 ? false : true;
+
+            // reverse the array
+            Array.Reverse(result);
+
+            return result;
+        }
         #endregion
     }
 }

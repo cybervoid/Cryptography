@@ -30,7 +30,10 @@ namespace CryptographyCsharp.Cryptography.Modern
             this._inputBytes = inputBytes;
             BuildMatrix();
         }
-
+        /// <summary>
+        /// Initialize a byte array with 128 bytes
+        /// </summary>
+        /// <param name="inputBytes">Input bytes.</param>
         public Matrix(List<byte> inputBytes) : this(inputBytes.ToArray())
         {
             
@@ -41,19 +44,31 @@ namespace CryptographyCsharp.Cryptography.Modern
             ByteMatrix = GetMatrix().ToList();
         }
 
-        public List<byte> this[int i]
+        public byte this[int row, int column]
         {
             get
             {
-                if (i >= ByteMatrix.Count)
-                    throw new IndexOutOfRangeException("out of range");
-                return ByteMatrix[i]; 
+                if (ByteMatrix == null)
+                    throw new Exception("ByteMatrix cannot be null");
+                if (ByteMatrix[row] == null)
+                    throw new IndexOutOfRangeException("row out of range ");
+
+                if(ByteMatrix[row].Count >= column )
+                    throw new  IndexOutOfRangeException("column out of range");                 
+                return ByteMatrix[row][column];            
             }
         }
 
-        public byte GetByte(int row, int column)
+        public bool Exists(int row, int column)
         {
-            return this[row][column];
+            if (ByteMatrix == null)
+                return false;
+            if (row >= ByteMatrix.Count || ByteMatrix[row] == null)
+                return false;
+            if(column >= ByteMatrix[row].Count )
+                return true;
+            else
+                return false;
         }
 
         private IEnumerable<List<byte>> GetMatrix()

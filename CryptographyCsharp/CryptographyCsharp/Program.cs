@@ -7,6 +7,8 @@ namespace CryptographyCsharp
     {
         public static void Main(string[] args)
         {
+            Tests.AESTests aesTests = new Tests.AESTests();
+            aesTests.Run();
 
             Vigenere vig = new Vigenere("Bob", "Hello World");
             vig.Run();
